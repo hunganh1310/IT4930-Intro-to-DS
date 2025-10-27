@@ -3,11 +3,11 @@
 This repository contains materials for the Data Science course taught at Hanoi University of Science and Technology (HUST).
 
 ## Lecturers
-Assoc. Prof. Dr. Than Quang Khoat
-Dr. Tran Viet Trung
-Dr. Nguyen Kiem Hieu
-Dr. Nguyen Thi Oanh
-Dr. Bui Thi Mai Anh
+- Assoc. Prof. Dr. Than Quang Khoat
+- Dr. Tran Viet Trung
+- Dr. Nguyen Kiem Hieu
+- Dr. Nguyen Thi Oanh
+- Dr. Bui Thi Mai Anh
 
 
 ## Course Overview
