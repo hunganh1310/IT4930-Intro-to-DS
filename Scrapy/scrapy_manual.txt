@@ -1,0 +1,88 @@
+
+========================
+SCRAPY - HƯỚNG DẪN CƠ BẢN
+========================
+
+I. GIỚI THIỆU
+-------------
+Scrapy là framework Python dùng để crawl (thu thập) dữ liệu từ website.
+
+Các thành phần chính:
+- Spider: Xác định cách crawl và xử lý dữ liệu
+- Request / Response: Gửi yêu cầu và xử lý phản hồi
+- Selector: Trích xuất dữ liệu từ HTML (dùng CSS hoặc XPath)
+- Item: Định nghĩa cấu trúc dữ liệu (tuỳ chọn)
+- Pipeline: Xử lý dữ liệu sau khi thu thập xong
+- Settings: Cấu hình cho dự án
+
+II. CẤU TRÚC DỰ ÁN SCRAPY
+--------------------------
+myproject/
+├── scrapy.cfg
+└── myproject/
+    ├── __init__.py
+    ├── items.py
+    ├── pipelines.py
+    ├── settings.py
+    └── spiders/
+        └── my_spider.py
+
+III. SPIDER CƠ BẢN
+------------------
+class QuotesSpider(scrapy.Spider):
+    name = "quotes"
+    start_urls = ['https://quotes.toscrape.com/']
+
+    def parse(self, response):
+        for quote in response.css('div.quote'):
+            yield {
+                'text': quote.css('span.text::text').get(),
+                'author': quote.css('small.author::text').get(),
+                'tags': quote.css('div.tags a.tag::text').getall(),
+            }
+
+IV. CÁC HÀM VÀ BIẾN QUAN TRỌNG
+------------------------------
+Spider:
+- name: tên spider
+- start_urls: danh sách URL bắt đầu
+- parse(): hàm xử lý phản hồi
+
+Request:
+- scrapy.Request(url, callback, meta, headers)
+- response.follow(url, callback)
+
+Response:
+- response.css('selector')
+- response.xpath('xpath')
+- response.url, response.text
+
+Selector:
+- .get(): lấy phần tử đầu tiên
+- .getall(): lấy tất cả phần tử
+
+Item (tuỳ chọn):
+- class MyItem(scrapy.Item): ...
+
+Pipeline:
+- def process_item(self, item, spider): ...
+
+Settings:
+- DOWNLOAD_DELAY = 1
+- USER_AGENT = "Mozilla/..."
+- FEED_FORMAT = 'csv'
+- FEED_URI = 'output.csv'
+
+V. TÍNH NĂNG MỞ RỘNG
+--------------------
+- Dùng meta để truyền dữ liệu giữa các hàm
+- response.follow() để truy cập các trang con
+- Sử dụng pipeline để xử lý dữ liệu nâng cao
+
+VI. CÁCH CHẠY SPIDER
+--------------------
+scrapy crawl <tên_spider> -o output.csv
+
+Ví dụ:
+scrapy crawl quotes -o quotes.csv
+
