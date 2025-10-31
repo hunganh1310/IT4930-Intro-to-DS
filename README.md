@@ -3,11 +3,11 @@
 This repository contains materials for the Data Science course taught at Hanoi University of Science and Technology (HUST).
 
 ## Lecturers
-Assoc. Prof. Dr. Than Quang Khoat
-Dr. Tran Viet Trung
-Dr. Nguyen Kiem Hieu
-Dr. Nguyen Thi Oanh
-Dr. Bui Thi Mai Anh
+- Assoc. Prof. Dr. Than Quang Khoat
+- Dr. Tran Viet Trung
+- Dr. Nguyen Kiem Hieu
+- Dr. Nguyen Thi Oanh
+- Dr. Bui Thi Mai Anh
 
 
 ## Course Overview
@@ -33,7 +33,7 @@ This course provides an introduction to Data Science fundamentals, covering esse
 Clone this repository to access course materials:
 
 ```bash
-git clone [repository-url]
+git clone https://github.com/hunganh1310/IT4930-Intro-to-DS
 ```
 
 ## Contributors
